@@ -1,0 +1,15 @@
+const compose = (...fns) => initValue => fns.reduce((acc, fn) => acc = fn(acc), initValue);
+
+const add = (x, y) => x + y;
+
+const add5 = y => add(5, y);
+
+const multiply = (x, y) => x * y;
+
+const multiply3 = y => multiply(3, y);
+
+const half = y => y / 2;
+
+const add5_mul2_half = compose(add5, multiply3, half);
+
+console.log(add5_mul2_half(1));
